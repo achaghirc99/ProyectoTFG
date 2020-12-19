@@ -1,0 +1,39 @@
+<section id="login" class="mb-5 mt-5">
+    <div id="login-page" class="row">
+        <div id="card-form-login" class="col s12 z-depth-6 card-panel">
+            <form class="form-login" #formLogin="ngForm" (ngSubmit)="onLogin(formLogin)">
+                <div class="input-field col s12 center">
+                    <a href="/login"><img id="img-lebron" class="circle responsive-img valign profile-image-login" src="../../../assets/lerbonJames-img.jpeg"></a>
+                    <h4 class="center login-form-text">Iniciar Sesion</h4>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input type="text" id="email" name="email" class="form-control" [(ngModel)]="loggedUser.email" required autofocus>
+                        <label for="email" data-error="wrong" data-success="right">Correo Electrónico</label>
+                    </div>
+                </div>
+                <div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input type="password" id="password" name="password" class="form-control" [(ngModel)]="loggedUser.password" required>
+                        <label for="password" data-error="wrong" data-success="right">Contraseña</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <button type="submit" class="btn waves-effect waves-light col s12">Login</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="input-field col s6 m6 l6">
+                        <a routerLink="/authenticate" class="margin medium-small">¿Aun no estar registrado?</a>
+                    </div>
+                    <div class="input-field col s6 m6 l6">
+                        <a routerLink="/authenticate" class="margin right-align medium-small">¿Has olvidado tu contraseña?</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,47 @@
+<section id="register" class="mb-5 mt-5">
+    <div id="register-page" class="row">
+        <div class="col s12 z-depth-6 card-panel">
+            <<form #comunityCreateForm="ngForm" (ngSubmit)="createNewComunity(comunityCreateForm)">
+                <div class="row">
+                    <h3 class="center-align">Registrate</h3>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label_outline</i>
+                        <input type="text" id="name" name="name" #name="ngModel" [(ngModel)]="userAuthService.selectedUser.name" />
+                        <label for="name" data-error="wrong" data-success="right">Nombre</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input type="password" id="password" name="password" #password="ngModel" [(ngModel)]="userAuthService.selectedUser.password" />
+                        <label for="password" data-error="wrong" data-success="right">Contraseña</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label_outline</i>
+                        <input type="number" min="0" id="numIntegrantes" name="numIntegrantes" #numIntegrantes="ngModel" [(ngModel)]="userAuthService.selectedUser.firstName" />
+                        <label for="numIntegrantes" data-error="wrong" data-success="right">Numero Integrantes</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label_outline</i>
+                        <input type="number" min="0" id="presupuesto" name="presupuesto" #presupuesto="ngModel" [(ngModel)]="userAuthService.selectedUser.firstName" />
+                        <label for="presupuesto" data-error="wrong" data-success="right">Presupuesto</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person_pin</i>
+                        <select id="tipo" name="tipo" [(ngModel)]="">
+                            <option [value] = "item" *ngFor = "let item of lista">{{item}}</option>
+                        </select>
+                        <label for="tipo" data-error="wrong" data-success="right">Tipo</label>
+                    </div>
+                    <div class="card-action">
+                        <div class="input-field col s12">
+                            <button class="btn right" (click)="resetForm(userAuthenticateForm)">Limpiar</button>
+                            <button class="btn right">Registrar</button>
+                        </div>
+                    </div>
+                </div>
+                </form>
+
+        </div>
+    </div>
+</section>

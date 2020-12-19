@@ -1,0 +1,79 @@
+<section id="register" class="mb-5 mt-5">
+    <div id="register-page" class="row">
+        <div id="register-form" class="col s12 z-depth-6 card-panel">
+            <form #userAuthenticateForm="ngForm" (ngSubmit)="authenticateUser(userAuthenticateForm)">
+                <div class="row">
+                    <h3 class="center-align">Registrate</h3>
+                </div>
+                <input type="hidden" name="_id" #_id="ngModel" [(ngModel)]="userAuthService.selectedUser._id" />
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label_outline</i>
+                        <input type="text" id="name" name="name" #name="ngModel" [(ngModel)]="userAuthService.selectedUser.name" />
+                        <label for="name" data-error="wrong" data-success="right">Nombre</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label_outline</i>
+                        <input type="text" id="firstName" name="firstName" #firstName="ngModel" [(ngModel)]="userAuthService.selectedUser.firstName" />
+                        <label for="firstName" data-error="wrong" data-success="right">First Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">label_outline</i>
+                        <input type="text" id="secondName" name="secondName" #secondName="ngModel" [(ngModel)]="userAuthService.selectedUser.secondName" />
+                        <label for="secondName" data-error="wrong" data-success="right">Second Name</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">person_pin</i>
+                        <input type="text" id="nickName" name="nickName" #nickName="ngModel" [(ngModel)]="userAuthService.selectedUser.nickName" />
+                        <label for="nickName" data-error="wrong" data-success="right">NickName</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">mail_outline</i>
+                        <input type="email" id="email" name="email" #email="ngModel" [(ngModel)]="userAuthService.selectedUser.email" />
+                        <label for="email" data-error="wrong" data-success="right">Correo Electrónico</label>
+                    </div>
+                    <div class="input-field col s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        <input type="password" id="password" name="password" #password="ngModel" [(ngModel)]="userAuthService.selectedUser.password" />
+                        <label for="password" data-error="wrong" data-success="right">Contraseña</label>
+                    </div>
+                    <div class="card-action">
+                        <div class="input-field col s12">
+                            <button class="btn right" (click)="resetForm(userAuthenticateForm)">Limpiar</button>
+                            <button class="btn right">Registrar</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<!-- <div class="col s7">
+        <table>
+            <thead>
+                <th>Name</th>
+                <th>nickName</th>
+                <th>First Name</th>
+                <th>Email</th>
+                <th>Operations</th>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of userAuthService.users">
+                    <td>{{user.name}}</td>
+                    <td>{{user.nickName}}</td>
+                    <td>{{user.firstName}}</td>
+                    <td>{{user.email}}</td>
+                    <td>
+                        <button class="waves-effect waves-light btn" (click)="editUser(user)">
+                            <i class="material-icons">mode_edit</i>
+                        </button>
+                        <button class="waves-effect waves-light btn" (click)="deleteUser(user._id)">
+                            <i class="material-icons">delete_forever</i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+ -->
