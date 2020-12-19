@@ -1,0 +1,43 @@
+<nav class="nav-wrapper green">
+    <div class="container">
+        <a href="/home" class="brand-logo center">MEAN CRUD</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <ng-container *ngIf="!userAuthService.loggedIn(); else loggedIn">
+                <li><a routerLink="/authenticate" routerLinkActive="active">Registrate</a></li>
+                <li><a routerLink="/login" routerLinkActive="active">Iniciar Sesion</a></li>
+            </ng-container>
+            <ng-template #loggedIn>
+                <li><a (click)="userAuthService.logout()" routerLink="/">Cerrar Sesion</a></li>
+            </ng-template>
+        </ul>
+        <ul id="nav-left-mobile" class="left">
+            <li>
+                <a href="#" data-target="slide-out" class="sidenav-trigger">
+                    <i class=" material-icons ">menu</i>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<ng-container *ngIf="userAuthService.loggedIn(); ">
+    <ul class="sidenav sidenav-fixed" id="slide-out" style="background-color:whitesmoke">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                    <img src="../../../assets/cobeBryant.jpg" style="height: 240px">
+                </div>
+                <div>
+                    <a href="/"><img class="circle" src="../../../assets/green_check.png"></a>
+                    <a href="/"><span class="white-text name">{{currentUser.name}}</span></a>
+                    <a href="/"><span class="white-text email">{{currentUser.email}}</span></a>
+                </div>
+            </div>
+        </li>
+        <div>
+            <li><a href="/equipo">Equipo</a></li>
+            <li><a href="badges.html ">Clasificacion</a></li>
+            <li><a href="collapsible.html ">Mercado</a></li>
+            <li><a href="mobile.html ">Ajustes</a></li>
+        </div>
+    </ul>
+</ng-container>
