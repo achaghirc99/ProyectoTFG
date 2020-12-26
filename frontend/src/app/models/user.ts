@@ -1,3 +1,5 @@
+import { Comunidad } from './comunidad';
+
 export class User {
     constructor(_id = '', name='',firstName='',secondName='',nickName='', email = '', password = ''){
         this._id = _id;
@@ -6,7 +8,8 @@ export class User {
         this.secondName = secondName; 
         this.nickName = nickName; 
         this.email = email;
-        this.password = password; 
+        this.password = password;
+        this.comunidad = new Comunidad(); 
     };
     
     _id: string;
@@ -16,5 +19,6 @@ export class User {
     nickName: string;
     email: string;
     password: string;
+    comunidad: Comunidad;
 }
 

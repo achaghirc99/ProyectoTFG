@@ -48,7 +48,7 @@ export class UserAuthenticateComponent implements OnInit {
           M.toast({html:'Usuario creado correctamente'});
           this.loggedUser = res as User;
           localStorage.setItem('email', this.loggedUser.email.toString());
-          this.router.navigateByUrl(`/comunidad`, {skipLocationChange : false});
+          this.router.navigate([`/comunidad`], {relativeTo : this.route});
       });
       
     }
@@ -66,7 +66,7 @@ export class UserAuthenticateComponent implements OnInit {
         if(this.loggedUser == undefined){
           this.isError = true;
         }       
-        this.router.navigateByUrl('/comunidad', { skipLocationChange: false }); // Con el skipLocationChange a false obligamos a que se cargue la configuracion de la ruta a la que queremos navegar. 
+        this.router.navigate(['/comunidad'], { skipLocationChange: false }); // Con el skipLocationChange a false obligamos a que se cargue la configuracion de la ruta a la que queremos navegar. 
       },
       err => console.log(err))
   }

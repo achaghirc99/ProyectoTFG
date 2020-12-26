@@ -41,7 +41,7 @@ export class UserAuthenticateService {
   };
 
   public getUserByEmail(email: String) {
-    return this.http.get(this.URL_API_USER+`byEmail/${email}`);
+    return this.http.get(this.URL_API_USER+`/byEmail/${email}`).pipe(tap((res:User) => {}));
   }
 
   public deleteUser(_id:string){

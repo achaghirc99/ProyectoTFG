@@ -4,11 +4,11 @@ const {Schema} = mongoose;
 /* const users = mongoose.Schema(users); */
 
 const comunidad_schema = new Schema({
-    nombre: {type:String, required:true, unique:true},
-    contraseña: {type:String, required:false},
-    numIntegrantes: {type:Number, required:true},
-    presupuesto: {type: Number, required:true},
-    tipo: {
+    name: {type:String, required:true, unique:true},
+    password: {type:String, required:false},
+    numIntegrants: {type:Number, required:true},
+    budget: {type: Number, required:true},
+    type: {
         type:String,
         enum: ['Public', 'Private'],
         default: 'Public'

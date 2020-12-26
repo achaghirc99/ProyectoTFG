@@ -5,14 +5,18 @@ const {Jugador} = mongoose.Schema(Jugador);
 
 const equipo_schema = new Schema ({
     id: {type: Number, required:true},
-    nombre: {type:String, required: true},
-    presupuesto: {type:Number, required:true}, 
-    numJugadores: {type:Number, required:true},
-
-    jugadores: {
+    name: {type:String, required: true},
+    budget: {type:Number, required:true}, 
+    numPlayers: {type:Number, required:true},
+    players: [{
         type: Schema.ObjectId,
-        ref: "Jugador"
+        ref: "jugador"
+    }],
+    user: {
+        type: Schema.ObjectId,
+        ref: "users",
+        required: false
     }
 })
 
-module.exports = mongoose.model('Equipo', equipo_schema);
+module.exports = mongoose.model('equipo', equipo_schema);

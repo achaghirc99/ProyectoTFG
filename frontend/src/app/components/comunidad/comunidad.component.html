@@ -1,47 +1,48 @@
 <section id="register" class="mb-5 mt-5">
-    <div id="register-page" class="row">
-        <div class="col s12 z-depth-6 card-panel">
-            <<form #comunityCreateForm="ngForm" (ngSubmit)="createNewComunity(comunityCreateForm)">
+    <div id="comunidad-page" class="row">
+        <div id="comunidad-form" class="col s12 z-depth-6 card-panel">
+            <form #comunityCreateForm="ngForm" (ngSubmit)="createNewComunity(comunityCreateForm)">
                 <div class="row">
-                    <h3 class="center-align">Registrate</h3>
+                    <h3 class="center-align">Crear Comunidad</h3>
                 </div>
                 <div class="row">
                     <div class="input-field col s12">
                         <i class="material-icons prefix">label_outline</i>
-                        <input type="text" id="name" name="name" #name="ngModel" [(ngModel)]="userAuthService.selectedUser.name" />
+                        <input type="text" id="name" name="name" #name="ngModel" [(ngModel)]="comunidadService.selectedComunidad.name" />
                         <label for="name" data-error="wrong" data-success="right">Nombre</label>
                     </div>
-                    <div class="input-field col s12">
+                    <div class="input-field col s12" *ngIf="comunidadService.selectedComunidad.type == 'Private'">
                         <i class="material-icons prefix">lock_outline</i>
-                        <input type="password" id="password" name="password" #password="ngModel" [(ngModel)]="userAuthService.selectedUser.password" />
+                        <input type="password" id="password" name="password" #password="ngModel" [(ngModel)]="comunidadService.selectedComunidad.password" />
                         <label for="password" data-error="wrong" data-success="right">Contraseña</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">label_outline</i>
-                        <input type="number" min="0" id="numIntegrantes" name="numIntegrantes" #numIntegrantes="ngModel" [(ngModel)]="userAuthService.selectedUser.firstName" />
-                        <label for="numIntegrantes" data-error="wrong" data-success="right">Numero Integrantes</label>
+                        <input type="number" min="0" id="numIntegrants" name="numIntegrants" #numIntegrants="ngModel" [(ngModel)]="comunidadService.selectedComunidad.numIntegrants" />
+                        <label for="numIntegrants" data-error="wrong" data-success="right">Numero Integrantes</label>
                     </div>
                     <div class="input-field col s12">
                         <i class="material-icons prefix">label_outline</i>
-                        <input type="number" min="0" id="presupuesto" name="presupuesto" #presupuesto="ngModel" [(ngModel)]="userAuthService.selectedUser.firstName" />
-                        <label for="presupuesto" data-error="wrong" data-success="right">Presupuesto</label>
+                        <input type="number" min="0" id="budget" name="budget" #budget="ngModel" [(ngModel)]="comunidadService.selectedComunidad.budget" />
+                        <label for="budget" data-error="wrong" data-success="right">Presupuesto</label>
                     </div>
                     <div class="input-field col s12">
-                        <i class="material-icons prefix">person_pin</i>
-                        <select id="tipo" name="tipo" [(ngModel)]="">
-                            <option [value] = "item" *ngFor = "let item of lista">{{item}}</option>
+                        <i *ngIf="comunidadService.selectedComunidad.type == ''" class="material-icons prefix">warning</i>
+                        <i *ngIf="comunidadService.selectedComunidad.type == 'Private'" class="material-icons prefix">lock</i>
+                        <i *ngIf="comunidadService.selectedComunidad.type == 'Public'" class="material-icons prefix">lock_open</i>
+                        <select id="type" name="type" #type="ngModel" [(ngModel)]="comunidadService.selectedComunidad.type">
+                            <option [value] = "item" *ngFor = "let item of enum">{{item}}</option>
                         </select>
                         <label for="tipo" data-error="wrong" data-success="right">Tipo</label>
                     </div>
                     <div class="card-action">
                         <div class="input-field col s12">
-                            <button class="btn right" (click)="resetForm(userAuthenticateForm)">Limpiar</button>
-                            <button class="btn right">Registrar</button>
+                            <button class="btn right" (click)="resetForm(comunityCreateForm)">Limpiar</button>
+                            <button class="btn right">Crear</button>
                         </div>
                     </div>
                 </div>
-                </form>
-
+            </form>
         </div>
     </div>
 </section>

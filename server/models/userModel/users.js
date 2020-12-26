@@ -20,6 +20,10 @@ const user_schema = new Schema({
     comunidad: {
         type: Schema.ObjectId,
         ref: 'comunidad'
+    },
+    equipo: {
+        type: Schema.ObjectId,
+        ref: "equipo"
     }
 });
 

@@ -36,7 +36,7 @@ export class UserLoginComponent implements OnInit {
         if(this.loggedUser == undefined){
           this.isError = true;
         }       
-        this.router.navigateByUrl(`/comunidad/${this.loggedUser._id}`, { skipLocationChange: false }); // Con el skipLocationChange a false obligamos a que se cargue la configuracion de la ruta a la que queremos navegar. 
+        this.router.navigate([`/home`], { skipLocationChange: false }); // Con el skipLocationChange a false obligamos a que se cargue la configuracion de la ruta a la que queremos navegar. 
       },
       err => console.log(err))
   }

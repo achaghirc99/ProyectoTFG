@@ -3,20 +3,20 @@ import { User } from './user';
 
 export class Comunidad {
 
-    constructor(nombre='',contraseña='',numIntegrantes=0 ,presupuesto=0, tipo='',users=null) {
-        this.nombre = nombre; 
-        this.contraseña = contraseña; 
-        this.numIntegrantes = numIntegrantes;
-        this.presupuesto = presupuesto;
-        this.tipo = tipo;
+    constructor(name='',password='',numIntegrants=0 ,budget=0, type='',users=[]) {
+        this.name = name; 
+        this.password = password; 
+        this.numIntegrants = numIntegrants;
+        this.budget =  budget;
+        this.type = type;
         this.users = users;
     }
 
-    nombre: string;
-    contraseña: string;
-    numIntegrantes: number; 
-    presupuesto; number; 
-    tipo: string;
+    name: string;
+    password: string;
+    numIntegrants: number; 
+    budget; number; 
+    type: string;
     users: User[];
 
 }
